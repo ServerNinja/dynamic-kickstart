@@ -1,0 +1,5 @@
+openshift_hostname: "osenode1.apps.reedfamily.local"
+openshift_public_hostname: "osenode1.apps.reedfamily.local"
+openshift_node_labels:
+  region: "primary"
+  zone: "default"

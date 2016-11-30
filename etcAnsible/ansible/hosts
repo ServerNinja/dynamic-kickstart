@@ -1,0 +1,31 @@
+[OSEv3:children]
+masters
+nodes
+
+[OSEv3:vars]
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
+openshift_master_htpasswd_users={'admin': '$apr1$rzHSIi1w$JpesB54iDD7v5bVTlQJ5B/'}
+
+os_sdn_network_plugin_name='redhat/openshift-ovs-multitenant'
+osm_cluster_network_cidr=10.114.0.0/16
+openshift_portal_net=172.114.0.0/16
+openshift_node_kubelet_args={'maximum-dead-containers': ['40']}
+
+openshift_master_default_subdomain=apps.reedfamily.local
+
+openshift_image_tag=v1.3.1
+
+openshift_pkg_version=-1.3.0
+
+deployment_type=origin
+
+ansible_become=true
+
+ansible_ssh_user=centos
+
+[masters]
+osemaster1.apps.reedfamily.local openshift_hostname=osemaster1.apps.reedfamily.local openshift_public_hostname=osemaster1.apps.reedfamily.local
+
+[nodes]
+osenode1.apps.reedfamily.local openshift_node_labels="{'region': 'infra', 'zone': 'default'}"
+osemaster1.apps.reedfamily.local
